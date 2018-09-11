@@ -30,6 +30,9 @@ RUN tar xzf $ACTIVEMQ-bin.tar.gz -C  /opt && \
 USER activemq
 
 WORKDIR $ACTIVEMQ_HOME
+
+COPY activemq.xml conf/
+
 EXPOSE $ACTIVEMQ_TCP $ACTIVEMQ_AMQP $ACTIVEMQ_STOMP $ACTIVEMQ_MQTT $ACTIVEMQ_WS $ACTIVEMQ_UI
 
 CMD ["/bin/sh", "-c", "bin/activemq console"]
